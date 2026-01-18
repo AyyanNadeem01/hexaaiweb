@@ -5,11 +5,26 @@ const services = [
     title: "AI Automation",
     desc: "Custom AI-first automations to reduce manual work, enrich data, and automate decision flows.",
   },
-  { title: "Web Development", desc: "Modern, responsive web apps and marketing sites." },
-  { title: "App Development", desc: "Cross-platform mobile apps and backend services." },
-  { title: "Digital Marketing", desc: "SEO, paid ads, and growth-focused campaign automation." },
-  { title: "Graphic Design", desc: "Branding, creatives, and UI assets for your product." },
-  { title: "SEO & Growth", desc: "Technical SEO, content strategy and conversion optimization." },
+  {
+    title: "Web Development",
+    desc: "Modern, responsive web apps and marketing sites.",
+  },
+  {
+    title: "App Development",
+    desc: "Cross-platform mobile apps and backend services.",
+  },
+  {
+    title: "Digital Marketing",
+    desc: "SEO, paid ads, and growth-focused campaign automation.",
+  },
+  {
+    title: "Graphic Design",
+    desc: "Branding, creatives, and UI assets for your product.",
+  },
+  {
+    title: "SEO & Growth",
+    desc: "Technical SEO, content strategy and conversion optimization.",
+  },
 ];
 
 const ServicesSection = ({ preview = false }: { preview?: boolean }) => {
