@@ -34,30 +34,30 @@ const About = () => {
             <h3 className="font-semibold">What we do</h3>
             <p className="mt-3 text-sm text-muted-foreground">
               We build custom automations (lead-gen, customer service,
-              appointment automation, content pipelines), web and mobile
-              apps, and marketing integrations.
+              appointment automation, content pipelines), web and mobile apps,
+              and marketing integrations.
             </p>
           </div>
         </section>
 
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold mb-4">Team</h2>
-            <p className="text-sm text-muted-foreground">
-              Our team combines ML engineers, full-stack developers and product
-              designers. We keep teams small and cross-functional so we can
-              iterate fast and ship production-grade systems.
-            </p>
-          </section>
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4">Team</h2>
+          <p className="text-sm text-muted-foreground">
+            Our team combines ML engineers, full-stack developers and product
+            designers. We keep teams small and cross-functional so we can
+            iterate fast and ship production-grade systems.
+          </p>
+        </section>
 
-          <section>
-            <h2 className="text-2xl font-semibold mb-4">Timeline</h2>
-            <ol className="list-decimal ml-6 text-sm text-muted-foreground">
-              <li>Discovery & research — align on KPIs</li>
-              <li>Prototype & validate — quick MVP</li>
-              <li>Productionize — monitoring, scaling, handoff</li>
-            </ol>
-          </section>
-        </main>
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Timeline</h2>
+          <ol className="list-decimal ml-6 text-sm text-muted-foreground">
+            <li>Discovery & research — align on KPIs</li>
+            <li>Prototype & validate — quick MVP</li>
+            <li>Productionize — monitoring, scaling, handoff</li>
+          </ol>
+        </section>
+      </main>
     </div>
   );
 };

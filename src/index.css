@@ -2,12 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "@fontsource/space-grotesk/400.css";
-@import "@fontsource/space-grotesk/500.css";
-@import "@fontsource/space-grotesk/700.css";
-@import "@fontsource/inter/400.css";
-@import "@fontsource/inter/500.css";
-@import "@fontsource/inter/600.css";
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/montserrat/500.css";
+@import "@fontsource/montserrat/700.css";
 
 @layer base {
   :root {
@@ -83,8 +80,9 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    /* Prefer Space Grotesk for headings and friendly modern UI, fall back to Inter */
-    font-family: "Space Grotesk", "Inter", sans-serif;
+    /* Use Montserrat across the app for headings and body */
+    font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -95,7 +93,7 @@
   h4,
   h5,
   h6 {
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Montserrat", sans-serif;
   }
 }
 
@@ -340,7 +338,11 @@
     top: -20%;
     width: 120%;
     height: 140%;
-    background: linear-gradient(120deg, rgba(30,144,255,0.12), rgba(138,43,226,0.08));
+    background: linear-gradient(
+      120deg,
+      rgba(30, 144, 255, 0.12),
+      rgba(138, 43, 226, 0.08)
+    );
     transform-origin: left center;
     z-index: 20;
     filter: blur(18px);
@@ -356,7 +358,7 @@
   /* Showing content immediately to avoid accidental hiding on some pages.
      We'll rely on container-level animations for the cinematic transition.
      Per-section animations can be added later with Framer Motion. */
-    /* Page content will be animated by the PageTransition component (Framer Motion).
+  /* Page content will be animated by the PageTransition component (Framer Motion).
       Avoid global hide/show CSS here so nested content renders normally. */
 
   /* keep navigation and footer visible during the transition so user retains context */
@@ -371,21 +373,37 @@
 
   /* stagger delays for first several children (level 1 and level 2 deep) */
   .page-transition .page-content > *:nth-child(1),
-  .page-transition .page-content > * > *:nth-child(1) { transition-delay: 0.06s; }
+  .page-transition .page-content > * > *:nth-child(1) {
+    transition-delay: 0.06s;
+  }
   .page-transition .page-content > *:nth-child(2),
-  .page-transition .page-content > * > *:nth-child(2) { transition-delay: 0.12s; }
+  .page-transition .page-content > * > *:nth-child(2) {
+    transition-delay: 0.12s;
+  }
   .page-transition .page-content > *:nth-child(3),
-  .page-transition .page-content > * > *:nth-child(3) { transition-delay: 0.18s; }
+  .page-transition .page-content > * > *:nth-child(3) {
+    transition-delay: 0.18s;
+  }
   .page-transition .page-content > *:nth-child(4),
-  .page-transition .page-content > * > *:nth-child(4) { transition-delay: 0.24s; }
+  .page-transition .page-content > * > *:nth-child(4) {
+    transition-delay: 0.24s;
+  }
   .page-transition .page-content > *:nth-child(5),
-  .page-transition .page-content > * > *:nth-child(5) { transition-delay: 0.30s; }
+  .page-transition .page-content > * > *:nth-child(5) {
+    transition-delay: 0.3s;
+  }
   .page-transition .page-content > *:nth-child(6),
-  .page-transition .page-content > * > *:nth-child(6) { transition-delay: 0.36s; }
+  .page-transition .page-content > * > *:nth-child(6) {
+    transition-delay: 0.36s;
+  }
   .page-transition .page-content > *:nth-child(7),
-  .page-transition .page-content > * > *:nth-child(7) { transition-delay: 0.42s; }
+  .page-transition .page-content > * > *:nth-child(7) {
+    transition-delay: 0.42s;
+  }
   .page-transition .page-content > *:nth-child(8),
-  .page-transition .page-content > * > *:nth-child(8) { transition-delay: 0.48s; }
+  .page-transition .page-content > * > *:nth-child(8) {
+    transition-delay: 0.48s;
+  }
 
   /* when page finished entering, reveal children with a subtle pop */
   /* If you want staged reveals later, we can use Framer Motion's staggerChildren
@@ -403,7 +421,11 @@
     width: 100vw;
     height: 100vh;
     z-index: 90;
-    background: linear-gradient(120deg, rgba(30,144,255,0.14), rgba(138,43,226,0.12));
+    background: linear-gradient(
+      120deg,
+      rgba(30, 144, 255, 0.14),
+      rgba(138, 43, 226, 0.12)
+    );
     filter: blur(14px);
     mix-blend-mode: screen;
     pointer-events: none;
