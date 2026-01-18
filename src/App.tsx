@@ -17,6 +17,9 @@ import PageTransition from "@/components/PageTransition";
 import NotFound from "./pages/NotFound";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import AppBackground from "@/components/AppBackground";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +38,8 @@ const AppRoutes = () => {
 
   return (
     <>
+      {/* app-level background visuals (hero-style) */}
+      <AppBackground />
       <Navigation />
       <AnimatePresence mode="wait" initial={true}>
         <Routes location={location} key={location.pathname}>
@@ -91,6 +96,22 @@ const AppRoutes = () => {
             element={
               <PageTransition>
                 <About />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/privacy"
+            element={
+              <PageTransition>
+                <Privacy />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/terms"
+            element={
+              <PageTransition>
+                <Terms />
               </PageTransition>
             }
           />

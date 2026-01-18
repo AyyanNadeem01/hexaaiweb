@@ -1,5 +1,6 @@
 // Navigation is provided at app level
 import HeroSection from "@/components/HeroSection";
+import ServicesSection from "@/components/ServicesSection";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -40,6 +41,11 @@ const Home = () => {
             </p>
           </Link>
         </section>
+
+        {/* Services preview on the home page (keeps a link to /services) */}
+        <div className="mt-12">
+          <ServicesSection preview={true} />
+        </div>
       </main>
     </div>
   );

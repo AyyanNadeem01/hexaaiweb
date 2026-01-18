@@ -2,35 +2,36 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import TypingText from "@/components/TypingText";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img 
-          src={heroBg} 
-          alt="" 
-          className="w-full h-full object-cover opacity-40"
+        <img
+          src={heroBg}
+          alt=""
+          className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
       </div>
 
       {/* Floating elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-radial opacity-50"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3]
+          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-radial opacity-20"
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.12, 0.2, 0.12],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gradient-radial opacity-30"
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2]
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gradient-radial opacity-12"
+          animate={{
+            scale: [1.1, 1, 1.1],
+            opacity: [0.08, 0.14, 0.08],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -54,9 +55,15 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <span className="text-foreground">Automate Your Business.</span>
+          <TypingText
+            text={"Automate Your Business."}
+            className="text-foreground"
+          />
           <br />
-          <span className="text-gradient glow-text">Scale Without Limits.</span>
+          <TypingText
+            text={"Scale Without Limits."}
+            className="text-gradient glow-text"
+          />
         </motion.h1>
 
         <motion.p
@@ -65,8 +72,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          We build custom AI workflows that capture leads, nurture customers, and 
-          close deals — all running on autopilot, 24/7.
+          We build custom AI workflows that capture leads, nurture customers,
+          and close deals — all running on autopilot, 24/7.
         </motion.p>
 
         <motion.div
@@ -75,8 +82,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <Button variant="hero" size="xl" asChild>
-            <a href="#contact">
+          <Button variant="heroOutline" size="xl" asChild>
+            <a href="contact">
               Contact Us
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
@@ -90,13 +97,15 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Trust indicators */}
-        <motion.div
+        {/* <motion.div
           className="mt-16 pt-8 border-t border-border/30"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          <p className="text-sm text-muted-foreground mb-4">Trusted by growing businesses in</p>
+          <p className="text-sm text-muted-foreground mb-4">
+            Trusted by growing businesses in
+          </p>
           <div className="flex flex-wrap justify-center gap-8 text-muted-foreground/70">
             <span className="font-heading font-medium">Real Estate</span>
             <span className="text-border">•</span>
@@ -106,7 +115,7 @@ const HeroSection = () => {
             <span className="text-border">•</span>
             <span className="font-heading font-medium">Local Services</span>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

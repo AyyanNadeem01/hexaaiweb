@@ -29,7 +29,7 @@ const Navigation = () => {
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-strong py-4" : "bg-transparent py-6"
+        isScrolled ? "glass-strong py-4" : "bg-transparent mt-8"
       }`}
       role="navigation"
       initial={{ y: -120 }}
@@ -38,8 +38,11 @@ const Navigation = () => {
     >
       <div className="container-width flex items-center justify-between">
         {/* Brand (text-only in header) */}
-        <Link to="/" className="font-heading font-bold text-2xl text-white">
-          Hexa AI
+        <Link to="/" className="font-heading font-bold text-2xl text-gray-500">
+          Hexa
+          <span className="font-heading font-bold text-2xl text-sky-300">
+            AI
+          </span>
         </Link>
 
         {/* Desktop Navigation (links stretch to fill available space) */}
@@ -79,6 +82,17 @@ const Navigation = () => {
             <Menu className="h-6 w-6" />
           )}
         </button>
+      </div>
+
+      {/* Mobile-only logo under the header */}
+      <div className="lg:hidden w-full flex justify-center pt-4 pb-2">
+        <Link to="/" className="inline-block">
+          <img
+            src="/logo.png"
+            alt="Hexa AI"
+            className="w-20 h-20 object-contain"
+          />
+        </Link>
       </div>
 
       {/* Mobile Menu */}
