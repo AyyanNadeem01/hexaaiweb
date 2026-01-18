@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "How It Works", href: "/how-it-works" },
-  { name: "Company", href: "/company" },
-  { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-  { name: "Why Us", href: "/why-us" },
-  { name: "FAQ", href: "/faq" },
+  { name: "AI Agents", href: "/company" }, // What you offer (products)
+  { name: "How It Works", href: "/how-it-works" }, // Process clarity
+  { name: "Services", href: "/services" }, // Supporting/custom work
+  { name: "Why Us", href: "/why-us" }, // Differentiation & trust
+  { name: "About", href: "/about" }, // Brand & team
+  { name: "FAQ", href: "/faq" }, // Objection handling
+  { name: "Contact", href: "/contact" }, // CTA at the end
 ];
 
 const Navigation = () => {
