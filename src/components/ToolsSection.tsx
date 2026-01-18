@@ -50,7 +50,7 @@ const tools: Tool[] = [
 
 const ToolsSection: React.FC = () => {
   return (
-    <section className="mt-12">
+    <section className="mt-0">
       <h2 className="text-2xl font-semibold mb-3">
         AI Agents & Automation Tools
       </h2>

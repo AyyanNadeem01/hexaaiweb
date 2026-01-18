@@ -36,7 +36,7 @@ const Faq = () => {
     <div className="min-h-screen bg-background">
       <main className="container mx-auto px-6 py-24">
         <h1 className="text-3xl font-bold">Frequently Asked Questions</h1>
-        <p className="mt-4 text-muted-foreground">
+        <p className="mt-4 text-muted-foreground max-w-2xl">
           Answers to common questions about timelines, pricing, integrations and
           support.
         </p>
@@ -44,9 +44,22 @@ const Faq = () => {
         <div className="mt-10">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {faqs.map((f, i) => (
-              <div key={i} className="card glass p-6">
-                <div className="font-semibold">{f.q}</div>
-                <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
+              <div
+                key={i}
+                className="
+                  card glass p-6 group
+                  transition-all duration-300 ease-out
+                  hover:-translate-y-2
+                  hover:shadow-xl
+                  hover:border-primary/40
+                "
+              >
+                <div className="font-semibold group-hover:text-primary transition-colors">
+                  {f.q}
+                </div>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  {f.a}
+                </p>
               </div>
             ))}
           </div>

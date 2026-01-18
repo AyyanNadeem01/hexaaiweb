@@ -10,10 +10,10 @@ const HowItWorks = () => {
           Our structured approach moves you from idea to automation in
           predictable milestones.
         </p> */}
-        <div className="mt-0">
+        <div>
           <HowItWorksSection />
         </div>
-        <div className="mt-0">
+        <div className="mb-9">
           <ToolsSection />
         </div>
       </main>
