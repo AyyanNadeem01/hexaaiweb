@@ -81,8 +81,17 @@
   body {
     @apply bg-background text-foreground antialiased;
     /* Use Montserrat across the app for headings and body */
-    font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto,
-      "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    font-family:
+      "Montserrat",
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial,
+      "Noto Sans",
+      "Liberation Sans",
+      sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
