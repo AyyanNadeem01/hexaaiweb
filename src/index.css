@@ -1,0 +1,411 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@layer base {
+  :root {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 195 100% 50%;
+    --primary-foreground: 222 47% 4%;
+
+    --secondary: 222 30% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 195 100% 50%;
+    --accent-foreground: 222 47% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 195 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --glow-primary: 195 100% 50%;
+    --glow-secondary: 260 100% 65%;
+    --surface-glass: 222 47% 8%;
+    --gradient-start: 195 100% 50%;
+    --gradient-end: 260 100% 65%;
+  }
+
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 222 47% 4%;
+    --secondary: 222 30% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 195 100% 50%;
+    --accent-foreground: 222 47% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 195 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    /* Prefer Space Grotesk for headings and friendly modern UI, fall back to Inter */
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Space Grotesk", sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--gradient-start)),
+      hsl(var(--gradient-end))
+    );
+  }
+
+  .bg-gradient-primary {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gradient-start)),
+      hsl(var(--gradient-end))
+    );
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(
+      ellipse at center,
+      hsl(var(--glow-primary) / 0.15) 0%,
+      transparent 70%
+    );
+  }
+
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+
+  .glass-strong {
+    @apply bg-card/80 backdrop-blur-2xl border border-border;
+  }
+
+  .glow-sm {
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.3);
+  }
+
+  .glow-md {
+    box-shadow: 0 0 40px hsl(var(--glow-primary) / 0.4);
+  }
+
+  .glow-lg {
+    box-shadow: 0 0 80px hsl(var(--glow-primary) / 0.5);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 40px hsl(var(--glow-primary) / 0.5);
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--glow-primary) / 0.4);
+  }
+
+  .border-glow {
+    @apply border border-primary/30;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out 2s infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  /* Logo and header stronger animations */
+  .logo-wrap {
+    width: 56px;
+    height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gradient-start) / 0.12),
+      hsl(var(--gradient-end) / 0.08)
+    );
+    box-shadow:
+      0 10px 40px hsl(var(--glow-primary) / 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.45);
+  }
+
+  .logo-wrap-footer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gradient-start) / 0.12),
+      hsl(var(--gradient-end) / 0.08)
+    );
+    box-shadow: 0 10px 40px hsl(var(--glow-primary) / 0.12);
+  }
+
+  .logo-text {
+    font-weight: 800;
+    letter-spacing: 0.6px;
+  }
+
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--gradient-start)),
+      hsl(var(--gradient-end))
+    );
+    transition:
+      width 0.28s ease,
+      left 0.28s;
+  }
+  /* Home page logo (plain image, no border/wrapper) */
+  .home-logo {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    display: block;
+    /* ensure no wrapper/background/border */
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+    /* nudge logo down a bit to appear visually lower on the left column */
+    transform: translateY(24px);
+    transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.2, 1);
+    margin-top: 60%;
+  }
+
+  /* stronger nudge on large screens to vertically center with hero */
+  @media (min-width: 1024px) {
+    .home-logo {
+      transform: translateY(56px);
+    }
+  }
+  .nav-link:hover::after {
+    width: 60%;
+    left: 20%;
+  }
+
+  /* Heavier 'hard' animations utilities */
+  .hard-entrance {
+    animation: hard-pop 0.6s cubic-bezier(0.2, 0.9, 0.2, 1);
+  }
+
+  @keyframes hard-pop {
+    0% {
+      opacity: 0;
+      transform: scale(0.92) translateY(10px);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.04) translateY(-6px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .section-spacing {
+    @apply py-24 md:py-32;
+  }
+
+  .container-width {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+
+  /* Page transition curtain and staggered content reveal */
+  .perspective {
+    perspective: 1200px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .page-transition {
+    position: relative;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .page-curtain {
+    position: absolute;
+    left: -10%;
+    top: -20%;
+    width: 120%;
+    height: 140%;
+    background: linear-gradient(120deg, rgba(30,144,255,0.12), rgba(138,43,226,0.08));
+    transform-origin: left center;
+    z-index: 20;
+    filter: blur(18px);
+    mix-blend-mode: screen;
+  }
+
+  .page-content {
+    position: relative;
+    z-index: 50;
+  }
+
+  /* default hidden state for direct children; will reveal when .entered is set */
+  /* Showing content immediately to avoid accidental hiding on some pages.
+     We'll rely on container-level animations for the cinematic transition.
+     Per-section animations can be added later with Framer Motion. */
+    /* Page content will be animated by the PageTransition component (Framer Motion).
+      Avoid global hide/show CSS here so nested content renders normally. */
+
+  /* keep navigation and footer visible during the transition so user retains context */
+  .page-transition .page-content > nav,
+  .page-transition .page-content > footer,
+  .page-transition .page-content nav,
+  .page-transition .page-content footer {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* stagger delays for first several children (level 1 and level 2 deep) */
+  .page-transition .page-content > *:nth-child(1),
+  .page-transition .page-content > * > *:nth-child(1) { transition-delay: 0.06s; }
+  .page-transition .page-content > *:nth-child(2),
+  .page-transition .page-content > * > *:nth-child(2) { transition-delay: 0.12s; }
+  .page-transition .page-content > *:nth-child(3),
+  .page-transition .page-content > * > *:nth-child(3) { transition-delay: 0.18s; }
+  .page-transition .page-content > *:nth-child(4),
+  .page-transition .page-content > * > *:nth-child(4) { transition-delay: 0.24s; }
+  .page-transition .page-content > *:nth-child(5),
+  .page-transition .page-content > * > *:nth-child(5) { transition-delay: 0.30s; }
+  .page-transition .page-content > *:nth-child(6),
+  .page-transition .page-content > * > *:nth-child(6) { transition-delay: 0.36s; }
+  .page-transition .page-content > *:nth-child(7),
+  .page-transition .page-content > * > *:nth-child(7) { transition-delay: 0.42s; }
+  .page-transition .page-content > *:nth-child(8),
+  .page-transition .page-content > * > *:nth-child(8) { transition-delay: 0.48s; }
+
+  /* when page finished entering, reveal children with a subtle pop */
+  /* If you want staged reveals later, we can use Framer Motion's staggerChildren
+     on each section instead of a blanket CSS rule. */
+
+  /* hide the curtain after the enter animation so it never obstructs content */
+  .page-transition.entered .page-curtain {
+    display: none;
+  }
+
+  /* Full viewport curtain used by app-level transition */
+  .global-curtain {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 90;
+    background: linear-gradient(120deg, rgba(30,144,255,0.14), rgba(138,43,226,0.12));
+    filter: blur(14px);
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+}
