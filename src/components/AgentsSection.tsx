@@ -6,7 +6,7 @@ import {
   ShoppingCart,
   Video,
 } from "lucide-react";
-
+//agents data
 const agents = [
   {
     title: "Real Estate AI Agent",
