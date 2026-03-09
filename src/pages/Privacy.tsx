@@ -2,7 +2,7 @@
 const Privacy = () => {
   return (
     <div className="min-h-screen bg-background">
-      <main className="container mx-auto px-6 py-24">
+      <main className="container mx-auto px-6 py-16">
         <h1 className="text-3xl font-bold">Privacy Policy</h1>
         <p className="mt-4 text-muted-foreground">
           This is a placeholder privacy policy. Replace this with your full

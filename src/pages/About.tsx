@@ -4,7 +4,7 @@
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
-      <main className="container mx-auto px-6 py-24">
+      <main className="container mx-auto px-6 py-16">
         <h1 className="text-3xl font-bold">About Hexa AI</h1>
         <p className="mt-4 text-muted-foreground max-w-2xl">
           Hexa AI builds production-ready AI automation and modern web & mobile

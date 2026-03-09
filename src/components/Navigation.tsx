@@ -29,7 +29,7 @@ const Navigation = () => {
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-strong py-4" : "bg-transparent mt-8"
+        isScrolled ? "glass-strong py-4" : "bg-transparent py-4"
       }`}
       role="navigation"
       initial={{ y: -120 }}
@@ -37,13 +37,16 @@ const Navigation = () => {
       transition={{ duration: 0.5, ease: [0.2, 0.9, 0.2, 1] }}
     >
       <div className="container-width flex items-center justify-between">
-        {/* Brand (text-only in header) */}
-        <Link to="/" className="font-heading font-bold text-2xl text-gray-500">
-          Hexa
-          <span className="font-heading font-bold text-2xl text-sky-300">
-            AI
-          </span>
-        </Link>
+        {/* Brand: show small logo on mobile, text brand on desktop */}
+        <div className="flex items-center gap-2">
+          <Link to="/" className="lg:hidden inline-flex items-center">
+            <img src="/logo.png" alt="Hexa AI" className="w-10 h-10 object-contain" />
+          </Link>
+          <Link to="/" className="hidden lg:inline-flex items-center font-heading font-bold text-2xl text-gray-500">
+            Hexa
+            <span className="text-sky-300 ml-1">AI</span>
+          </Link>
+        </div>
 
         {/* Desktop Navigation (links stretch to fill available space) */}
         <motion.div
@@ -84,16 +87,7 @@ const Navigation = () => {
         </button>
       </div>
 
-      {/* Mobile-only logo under the header */}
-      <div className="lg:hidden w-full flex justify-center pt-4 pb-2">
-        <Link to="/" className="inline-block">
-          <img
-            src="/logo.png"
-            alt="Hexa AI"
-            className="w-20 h-20 object-contain"
-          />
-        </Link>
-      </div>
+      {/* Mobile logo removed from nav — logo is shown on Home page instead */}
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (

@@ -34,7 +34,7 @@ const faqs = [
 const Faq = () => {
   return (
     <div className="min-h-screen bg-background">
-      <main className="container mx-auto px-6 py-24">
+      <main className="container mx-auto px-6 py-16">
         <h1 className="text-3xl font-bold">Frequently Asked Questions</h1>
         <p className="mt-4 text-muted-foreground max-w-2xl">
           Answers to common questions about timelines, pricing, integrations and

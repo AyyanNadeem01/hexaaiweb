@@ -14,21 +14,51 @@ const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
+    console.log("VITE_WEB3FORMS_KEY:", import.meta.env.VITE_WEB3FORMS_KEY);
+    try {
+      const access_key = import.meta.env.VITE_WEB3FORMS_KEY;
+      if (!access_key) {
+        setError(
+          "Missing Web3Forms key. Set VITE_WEB3FORMS_KEY in a local .env file and restart the dev server."
+        );
+        setIsSubmitting(false);
+        return;
+      }
 
-    // Placeholder: In production, this would send to your backend
-    // For now, simulating a form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+      const formPayload = new FormData();
+      formPayload.append("access_key", access_key);
+      formPayload.append("subject", `New contact from ${formData.name || "Website"}`);
+      formPayload.append("name", formData.name);
+      formPayload.append("email", formData.email);
+      formPayload.append("company", formData.company);
+      formPayload.append("message", formData.message);
 
-    console.log("Form submitted:", formData);
-    // Placeholder email: contact@hexa.ai
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formPayload,
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: "", email: "", company: "", message: "" });
+      const json = await res.json();
+      if (!res.ok || !json.success) {
+        console.error("Web3Forms error:", json);
+        setError(json.message || "Failed to submit form");
+        return;
+      }
+
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", company: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      setError("There was an error sending your message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -103,6 +133,11 @@ const ContactSection = () => {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
+              {error && (
+                <div className="rounded-md bg-destructive/10 border border-destructive/30 text-destructive px-4 py-3 text-sm">
+                  {error}
+                </div>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-foreground flex items-center gap-2">

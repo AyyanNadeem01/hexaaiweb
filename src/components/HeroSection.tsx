@@ -89,9 +89,9 @@ const HeroSection = () => {
             </a>
           </Button>
           <Button variant="heroOutline" size="xl" asChild>
-            <a href="#how-it-works">
+            <a href="services">
               <Play className="mr-2 h-5 w-5" />
-              See How It Works
+              Our Services
             </a>
           </Button>
         </motion.div>

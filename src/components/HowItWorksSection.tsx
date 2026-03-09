@@ -39,7 +39,7 @@ const HowItWorksSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium glass rounded-full border-glow text-primary">
+          <span className="inline-block px-4 mb-4 text-sm font-medium glass rounded-full border-glow text-primary">
             Our Process
           </span>
           <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4">
