@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 import TypingText from "@/components/TypingText";
 //hero section
@@ -83,16 +84,16 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <Button variant="heroOutline" size="xl" asChild>
-            <a href="contact">
+            <Link to="/contact">
               Contact Us
               <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
+            </Link>
           </Button>
           <Button variant="heroOutline" size="xl" asChild>
-            <a href="services">
+            <Link to="/services">
               <Play className="mr-2 h-5 w-5" />
               Our Services
-            </a>
+            </Link>
           </Button>
         </motion.div>
 
