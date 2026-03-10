@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="min-h-screen bg-background">
-      <main className="container mx-auto px-6 py-24">
+      <main className="container mx-auto px-6 py-10 lg:py-24">
         <div className="grid lg:grid-cols-12 gap-6 items-start">
           {/* Left: large logo on home page (no border/wrapper) */}
           <div className="hidden lg:flex lg:col-span-3 items-center justify-center">
